@@ -51,6 +51,7 @@ var zoom = 1;
 function preload(){
 	// Image (from mapbox) is loaded and displayed to the screen using the loadImage function from p5.js
 	mapImage = loadImage('https://api.mapbox.com/styles/v1/mapbox/dark-v9/static/0,0,1,0,0/1024x512?access_token=pk.eyJ1Ijoic2VuYWxrdWxhIiwiYSI6ImNqMGltb251ZjAwazMycW1lZ3NvdmF3NzUifQ.IWW29a6TlrwU5Arm-Aym3A');
+	
 	// earthquakeData_1Day = loadStrings('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.csv'); // A csc file is being loaded. It is a comma seperated value file. 
 	earthquakeData_30Days = loadStrings('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv');
 }

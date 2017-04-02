@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Realtime Earthquake Data</title>
+	<title>Disaster Feed - Realtime Earthquake Data</title>
+	<!-- Main CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
-</head>
+	<!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"></head>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="disaster-feed.ico" />
 <body>
-<h1>Realtime Earthquake Data</h1>
-<button>Past Hour</button>
-<button>Past Day</button>
-<button>Past 7 Days</button>
-<button>Past 30 Days</button>
 
-<!-- Scripts -->
-<script type="text/javascript" src="assets/js/sketch.js"></script>
-<script type="text/javascript" src="assets/js/p5.min.js"></script> <!-- map will be displayed in the p5.js canvas -->
+	<div class="title">
+		<h1> <i id="earth" class="fa fa-globe" aria-hidden="true"></i> Disaster Feed</h1>
+		<h2>Realtime Earthquake Data</h2>
+	</div>
+
+	<div class="buttons">
+		<button id="btn-hour" >Past Hour </button>
+		<button id="btn-1day" >Past Day </button>
+		<button id="btn-7days" >Past 7 Days </button>
+		<button id="btn-30days" >Past 30 Days </button>
+	</div>
+
+<!--*****************
+        Scripts 
+******************--> 
+	<script type="text/javascript" src="assets/js/sketch.js"></script>
+	<!-- Map will be displayed in the p5.js canvas -->
+	<script class="world-map" type="text/javascript" src="assets/js/p5.min.js"></script> 
+	<!-- DOM for buttons -->
+	<script class="world-map" type="text/javascript" src="assets/js/main.js"></script> 
+
 </body>
 </html>

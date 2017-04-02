@@ -1,6 +1,54 @@
+body {
+	background-color: rgba(24,25,25,0.1);
+}
+
+.title {
+	margin-bottom: 30px;
+}
+
+h1 {
+	letter-spacing: 4px;	
+	font-size: 3em;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+h2 {
+	margin-top: 4px;
+	letter-spacing: 1px;	
+	font-size: 1em;
+	margin-left:65px;
+}
+
+.buttons {
+	/* border: red solid 4px; */
+	display: grid;
+}
+
 button {
 	margin-right: 20px;
 	margin-bottom: 20px;
+	padding: 0;
+	border-width: 0;
+	outline: none;
+	border-radius: 3px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+
+	background-color: #2ecc71;
+	color: #ecf0f1;
+
+	transition: background-color .3s;
+	padding: 12px 24px;
+	font-size: 13px;
+	letter-spacing: 1px;	
 }
 
+button:hover, button:focus {
+	background-color: #27ae60;
+}
+
+#defaultCanvas0 {
+	/* border: red solid 4px; */
+	display: grid;
+}
 
