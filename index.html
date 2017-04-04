@@ -8,12 +8,16 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"></head>
     <!-- Favicon -->
     <link rel="shortcut icon" href="disaster-feed.ico" />
-<body>
+	<!-- <body oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;"> -->
 
 	<div class="title">
 		<h1> <i id="earth" class="fa fa-globe" aria-hidden="true"></i> Disaster Feed</h1>
 		<h2>Realtime Earthquake Data</h2>
 	</div>
+
+	<hr>
+
+	<!-- <h3>Date &amp; Time: <span id="clockbox"> </span></h3> -->
 
 	<div class="buttons">
 		<button id="btn-hour" >Past Hour </button>
@@ -22,14 +26,23 @@
 		<button id="btn-30days" >Past 30 Days </button>
 	</div>
 
+	<footer>
+		<div class="footer"> 
+			<p>&copy; 2017 Senal Kularatne</p>
+            <p>Made with <i class="fa fa-coffee" aria-hidden="true"></i></p>
+		</div>
+	</footer>
+
 <!--*****************
         Scripts 
 ******************--> 
+
 	<script type="text/javascript" src="assets/js/sketch.js"></script>
 	<!-- Map will be displayed in the p5.js canvas -->
 	<script class="world-map" type="text/javascript" src="assets/js/p5.min.js"></script> 
 	<!-- DOM for buttons -->
-	<script class="world-map" type="text/javascript" src="assets/js/main.js"></script> 
+	<script type="text/javascript" src="assets/js/main.js"></script> 
 
 </body>
 </html>
+
