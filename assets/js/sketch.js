@@ -95,29 +95,35 @@ var hourBtn = document.getElementById("btn-hour");
 var dayBtn = document.getElementById("btn-1day");
 var sevenDaysBtn = document.getElementById("btn-7days");
 var thirtyDaysBtn = document.getElementById("btn-30days");
+var earthquakeData;
 
+// window.onload = function() {
+// 	setup(earthquakeData_1Hour);
+// 	console.log("First thing to do!")
+// };
 
 hourBtn.onclick = function() {
-	alert("hourBtn button was clicked");
+	setup(earthquakeData_1Hour);
 };
 
 dayBtn.onclick = function() {
-	alert("dayBtn button was clicked");
+	setup(earthquakeData_1Day);
 };
 
 sevenDaysBtn.onclick = function() {
-	alert("sevenDaysBtn button was clicked");
+	setup(earthquakeData_7Days);
 };
 
 thirtyDaysBtn.onclick = function() {
-	alert("thirtyDaysBtn button was clicked");
+	setup(earthquakeData_30Days);
 };
 
 // **********************************************
 // 	         Setup the earthquake data
 // **********************************************
 
-function setup() {
+function setup(earthquakeData) {
+
 	// Creates a P5.js canvas and set the dimension (pixels). The number must match the number at mapImage = loadImage('')
 	createCanvas (1024, 512);
 
@@ -131,58 +137,46 @@ function setup() {
 		// y - Number: the y-coordinate at which to place the top-left corner of the source image
 	image(mapImage,0,0);
 
-	// These are centerlongitude and centerlatidue in radians
-	var centerX = webMercatorX(centerLongitude);
-	var centerY = webMercatorY(centerLatitude);
+	if (typeof earthquakeData !== 'undefined') {
 
-	for (var i = 0; i< earthquakeData_30Days.length; i++){
-		// split() breaks a String into pieces using a character or string as the delimiter. 
-		// split(value,delim). 
-		// value --> the String to be split
-		// delim --> the String used to separate the data
-		// We don't use quotes here lik "," instead we use regular expressions /,/
-		var data = earthquakeData_30Days[i].split(/,/); 
-		// var data = earthquakeData_1Day[i].split(/,/); 
-		var magnitude = data[4];
-		var latitudeData = data[1];
-		var longitudeData = data[2];
+		// These are centerlongitude and centerlatidue in radians
+		var centerX = webMercatorX(centerLongitude);
+		var centerY = webMercatorY(centerLatitude);
 
-		// These are longitude and latidue in radians
-		// - centerX and and -centerY is doen because x and y values are the difference between the position of the country and the center
-		var x = webMercatorX(longitudeData) - centerX;
-		var y = webMercatorY(latitudeData) - centerY;
+		for (var i = 0; i < earthquakeData.length; i++){
 
-		
+			// split() breaks a String into pieces using a character or string as the delimiter. 
+			// split(value,delim). 
+			// value --> the String to be split
+			// delim --> the String used to separate the data
+			// We don't use quotes here lik "," instead we use regular expressions /,/
+			var data = earthquakeData[i].split(/,/); 
+			// var data = earthquakeData_1Day[i].split(/,/); 
+			var magnitude = data[4];
+			var latitudeData = data[1];
+			var longitudeData = data[2];
 
-		// *********************
-		// 	     Magnitude
-		// *********************
-		magnitude = pow(10, magnitude);
-		magnitude = sqrt(magnitude);
+			// These are longitude and latidue in radians
+			// - centerX and and -centerY is doen because x and y values are the difference between the position of the country and the center
+			var x = webMercatorX(longitudeData) - centerX;
+			var y = webMercatorY(latitudeData) - centerY;
 
-		var  maxMagnitude = sqrt(pow(10,10));	
+			// *********************
+			// 	     Magnitude
+			// *********************
+			magnitude = pow(10, magnitude);
+			magnitude = sqrt(magnitude);
 
-		var diameter = map(magnitude, 0, maxMagnitude, 0, 1800);
+			var  maxMagnitude = sqrt(pow(10,10));	
 
-		// Sets color (rgba)
-		fill(0, 255, 0, 70); 
-		// Draw an oval. x-coordinate, y-coordinate, width and height of ellipse
-		ellipse(x, y, diameter, diameter); 
-		// Color to put around circle
-		stroke(0, 255, 0, 70);	
+			var diameter = map(magnitude, 0, maxMagnitude, 0, 1800);
 
+			// Sets color (rgba)
+			fill(0, 255, 0, 70); 
+			// Draw an oval. x-coordinate, y-coordinate, width and height of ellipse
+			ellipse(x, y, diameter, diameter); 
+			// Color to put around circle
+			stroke(0, 255, 0, 70);	
+		}
 	}
-
-	// These are longitude and latidue in radians
-	// - centerX and and -centerY is doen because x and y values are the difference between the position of the country and the center
-	// var x = webMercatorX(longitude) - centerX;
-	// var y = webMercatorY(latitude) - centerY;
-
-	// Make a circle (ellipse)
-	// fill(0,255,0, 70); // Sets the color used to fill shapes in the format rgba
-	// ellipse(x, y, diameter, diameter); // Draw an oval. x-coordinate, y-coordinate, width and height of ellipse
 }
-
-
-
-
